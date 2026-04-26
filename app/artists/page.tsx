@@ -1,6 +1,8 @@
 'use client'
 
-import { Container, Box, Typography, Button } from '@mui/material'
+import { Container, Box, Typography } from '@mui/material'
+import artists from '../data/artists'
+import ArtistCard from '../components/ArtistCard'
 
 export default function ArtistsPage() {
   return (
@@ -17,15 +19,38 @@ export default function ArtistsPage() {
           pt: 12,
         }}
       >
-        <Typography variant="h1" component="h1" sx={{ fontSize: '3rem', fontWeight: 'bold' }}>
-          Artistas
+        <Typography variant="h1" component="h1" sx={{ fontSize: '3rem', fontWeight: 'bold', textAlign: 'center', marginBottom: 4 }}>
+          ARTISTAS
         </Typography>
-        <Typography variant="body1" sx={{ fontSize: '1.125rem', maxWidth: '600px', textAlign: 'center' }}>
-          Discover our featured artists and collaborators.
-        </Typography>
-        <Button variant="contained" size="large">
-          Learn More
-        </Button>
+
+        <Box
+          sx={{
+            width: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            flexDirection: 'column',
+          }}
+        >
+          <Box
+            sx={{
+              width: '100%',
+              display: 'flex',
+              flexWrap: 'wrap',
+              flexDirection: 'row',
+              justifyContent: 'space-evenly',
+              alignItems: 'center',
+              margin: 4,
+              '@media (max-width: 900px)': {
+                flexDirection: 'column',
+                margin: 2,
+              },
+            }}
+          >
+            {artists.map((artist, index) => (
+              <ArtistCard key={index} artist={artist} />
+            ))}
+          </Box>
+        </Box>
       </Box>
     </Container>
   )
