@@ -1,6 +1,8 @@
 'use client'
 
-import { Container, Box, Typography, Button } from '@mui/material'
+import { Container, Box, Typography } from '@mui/material'
+import releases from '../data/releases'
+import ReleaseCard from '../components/ReleaseCard'
 
 export default function ReleasesPage() {
   return (
@@ -17,15 +19,38 @@ export default function ReleasesPage() {
           pt: 12,
         }}
       >
-        <Typography variant="h1" component="h1" sx={{ fontSize: '3rem', fontWeight: 'bold' }}>
-          Releases
+        <Typography variant="h1" component="h1" sx={{ fontSize: '3rem', fontWeight: 'bold', textAlign: 'center', marginBottom: 4 }}>
+          LANÇAMENTOS
         </Typography>
-        <Typography variant="body1" sx={{ fontSize: '1.125rem', maxWidth: '600px', textAlign: 'center' }}>
-          Explore our latest releases and catalog.
-        </Typography>
-        <Button variant="contained" size="large">
-          Browse Releases
-        </Button>
+
+        <Box
+          sx={{
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            marginTop: 9,
+            '@media (min-width: 900px)': {
+              maxWidth: '1062px',
+            },
+            '@media (max-width: 900px)': {
+              padding: '0px 50px',
+            },
+          }}
+        >
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginBottom: 4,
+            }}
+          >
+            {releases.map((release, index) => (
+              <ReleaseCard key={index} release={release} />
+            ))}
+          </Box>
+        </Box>
       </Box>
     </Container>
   )
