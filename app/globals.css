@@ -13,11 +13,22 @@
   font-style: normal;
 }
 
+/* Color Variables */
+:root {
+  --primary: #7249b0;
+  --secondary: #7cfec3;
+  --background: #7249b0;
+  --text-primary: #ffffff;
+  --text-secondary: #7cfec3;
+  --foreground: #ffffff;
+}
+
 /* Custom styles */
 
 html,
 body {
-  color: var(--foreground);
+  color: var(--text-primary);
+  background-color: var(--background);
   font-family: 'Akzidenz Grotesk Pro', Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
@@ -26,4 +37,13 @@ body {
 #__next {
   position: relative;
   z-index: 1;
+}
+
+/* Remove all underlines */
+a {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-decoration: none;
 }

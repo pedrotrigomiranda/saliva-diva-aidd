@@ -93,9 +93,11 @@ export default function Navigation() {
                 cursor: 'pointer',
                 fontSize: '0.95rem',
                 fontWeight: 500,
+                color: '#7cfec3',
                 transition: 'all 0.3s ease',
+                textDecoration: 'none',
                 '&:hover': {
-                  textDecoration: 'underline',
+                  opacity: 0.8,
                 },
               }}
             >
@@ -107,7 +109,7 @@ export default function Navigation() {
 
       {/* Menu Icon */}
       <IconButton onClick={() => setOpen(true)} sx={{ padding: 0 }}>
-        <MenuIcon sx={{ fontSize: '2rem' }} />
+        <MenuIcon sx={{ fontSize: '2rem', color: '#7cfec3' }} />
       </IconButton>
     </Toolbar>
   );
@@ -142,7 +144,7 @@ export default function Navigation() {
           />
         </Link>
         <IconButton onClick={() => setOpen(false)}>
-          <CloseIcon sx={{ fontSize: '2rem' }} />
+          <CloseIcon sx={{ fontSize: '2rem', color: '#7cfec3' }} />
         </IconButton>
       </Box>
 
@@ -160,9 +162,11 @@ export default function Navigation() {
               sx={{
                 cursor: 'pointer',
                 fontWeight: 'bold',
+                color: '#7cfec3',
                 transition: 'all 0.3s ease',
+                textDecoration: 'none',
                 '&:hover': {
-                  textDecoration: 'underline',
+                  opacity: 0.8,
                 },
               }}
             >

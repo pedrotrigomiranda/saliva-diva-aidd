@@ -102,8 +102,9 @@ export default function ArtistCard({ artist }: ArtistCardProps) {
             sx={{
               margin: 2,
               color: '#7cfec2',
+              textDecoration: 'none',
               '&:hover': {
-                textDecoration: 'underline',
+                opacity: 0.8,
               },
             }}
           >

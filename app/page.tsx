@@ -1,6 +1,8 @@
 'use client';
 
+import Image from 'next/image';
 import { Container, Typography, Box, Button } from '@mui/material';
+import homepageLogo from '@/public/assets/homepage_logo.png';
 
 export default function Home() {
   return (
@@ -17,15 +19,26 @@ export default function Home() {
           pt: 12,
         }}
       >
-        <Typography variant="h1" component="h1" sx={{ textAlign: 'center' }}>
-          Welcome to Saliva Diva
+        <Image
+          src={homepageLogo}
+          alt="Saliva Diva Homepage Logo"
+          priority
+          style={{ width: '100%', height: 'auto', cursor: 'pointer' }}
+        />
+        <Typography variant="h2" sx={{ mt: 4, textAlign: 'center', color: '#7cfec3' }}>
+          Saliva Diva
         </Typography>
-        <Typography variant="body1" sx={{ textAlign: 'center', maxWidth: '600px' }}>
-          This is the homepage for the Saliva Diva website.
+        <Typography
+          variant="body1"
+          sx={{
+            textAlign: 'center',
+            maxWidth: 600,
+            mt: 2,
+            color: '#7cfec3',
+          }}
+        >
+          Explore our collection of artists, releases, and live events.
         </Typography>
-        <Button variant="contained" color="primary" size="large">
-          Get Started
-        </Button>
       </Box>
     </Container>
   );
