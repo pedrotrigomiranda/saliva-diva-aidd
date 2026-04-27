@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   AppBar,
   Toolbar,
@@ -14,6 +15,8 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import logoSecondary from '@/public/assets/logo_transparent_secondary.png';
+import logoPrimary from '@/public/assets/logo_transparent_primary.png';
 
 export default function Navigation() {
   const theme = useTheme();
@@ -71,20 +74,14 @@ export default function Navigation() {
     >
       {/* Logo */}
       <Link href="/">
-        <Box
-          sx={{
-            width: '40px',
-            height: '40px',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            cursor: 'pointer',
-            fontSize: '1.5rem',
-            fontWeight: 'bold',
-          }}
-        >
-          SD
-        </Box>
+        <Image
+          src={logoSecondary}
+          alt="Saliva Diva Logo"
+          width={52}
+          height={52}
+          priority
+          style={{ cursor: 'pointer' }}
+        />
       </Link>
 
       {/* Desktop Navigation Links */}
@@ -136,19 +133,13 @@ export default function Navigation() {
         }}
       >
         <Link href="/">
-          <Box
-            sx={{
-              width: '40px',
-              height: '40px',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              fontSize: '1.5rem',
-              fontWeight: 'bold',
-            }}
-          >
-            SD
-          </Box>
+          <Image
+            src={logoPrimary}
+            alt="Saliva Diva Logo"
+            width={52}
+            height={52}
+            style={{ cursor: 'pointer' }}
+          />
         </Link>
         <IconButton onClick={() => setOpen(false)}>
           <CloseIcon sx={{ fontSize: '2rem' }} />
@@ -209,7 +200,14 @@ export default function Navigation() {
         {isMobile ? (
           <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
             <Link href="/">
-              <Box sx={{ fontSize: '1.5rem', fontWeight: 'bold' }}>SD</Box>
+              <Image
+                src={logoSecondary}
+                alt="Saliva Diva Logo"
+                width={52}
+                height={52}
+                priority
+                style={{ cursor: 'pointer' }}
+              />
             </Link>
             <IconButton onClick={() => setOpen(true)}>
               <MenuIcon sx={{ fontSize: '2rem' }} />
