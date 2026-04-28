@@ -10,8 +10,6 @@ import {
   Drawer,
   Box,
   Typography,
-  useMediaQuery,
-  useTheme,
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
@@ -19,8 +17,6 @@ import logoSecondary from '@/public/assets/logo_transparent_secondary.png';
 import logoPrimary from '@/public/assets/logo_transparent_primary.png';
 
 export default function Navigation() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -35,6 +31,9 @@ export default function Navigation() {
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
+      
+      // Don't hide navbar if drawer is open
+      if (open) return;
       
       if (currentScrollY > 90) {
         if (currentScrollY > lastScrollY) {
@@ -51,78 +50,26 @@ export default function Navigation() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY, isClient]);
+  }, [lastScrollY, isClient, open]);
 
   const navLinks = [
     { text: 'RELEASES', href: '/releases' },
-    { text: 'ARTISTS', href: '/artists' },
+    { text: 'ARTISTAS', href: '/artists' },
     { text: 'MANIFESTO', href: '/manifesto' },
-    { text: 'CALENDAR', href: '/calendar' },
-    { text: 'CONTACTS', href: '/contacts' },
+    { text: 'CALENDIVÁRIO', href: '/calendar' },
+    { text: 'CONTACTOS', href: '/contacts' },
   ];
-
-  const DesktopNav = () => (
-    <Toolbar
-      sx={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: '100%',
-        maxWidth: '1200px',
-        margin: '0 auto',
-      }}
-    >
-      {/* Logo */}
-      <Link href="/">
-        <Image
-          src={logoSecondary}
-          alt="Saliva Diva Logo"
-          width={52}
-          height={52}
-          priority
-          style={{ cursor: 'pointer' }}
-        />
-      </Link>
-
-      {/* Desktop Navigation Links */}
-      <Box sx={{ display: 'flex', gap: 4 }}>
-        {navLinks.map((link) => (
-          <Link key={link.href} href={link.href} style={{ textDecoration: 'none' }}>
-            <Typography
-              sx={{
-                cursor: 'pointer',
-                fontSize: '0.95rem',
-                fontWeight: 500,
-                color: '#7cfec3',
-                transition: 'all 0.3s ease',
-                textDecoration: 'none',
-                '&:hover': {
-                  opacity: 0.8,
-                },
-              }}
-            >
-              {link.text}
-            </Typography>
-          </Link>
-        ))}
-      </Box>
-
-      {/* Menu Icon */}
-      <IconButton onClick={() => setOpen(true)} sx={{ padding: 0 }}>
-        <MenuIcon sx={{ fontSize: '2rem', color: '#7cfec3' }} />
-      </IconButton>
-    </Toolbar>
-  );
 
   const DrawerContent = () => (
     <Box
       sx={{
-        width: '100vw',
-        height: '100%',
+        width: '100%',
+        height: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: '#f5f5f5',
+        backgroundColor: '#7249b0',
         padding: '20px',
+        boxSizing: 'border-box',
       }}
     >
       {/* Drawer Header */}
@@ -158,11 +105,12 @@ export default function Navigation() {
             style={{ textDecoration: 'none' }}
           >
             <Typography
-              variant="h4"
+              variant="h5"
               sx={{
                 cursor: 'pointer',
                 fontWeight: 'bold',
                 color: '#7cfec3',
+                fontSize: '1.25rem',
                 transition: 'all 0.3s ease',
                 textDecoration: 'none',
                 '&:hover': {
@@ -178,10 +126,12 @@ export default function Navigation() {
 
       {/* Contact Info */}
       <Box sx={{ marginTop: 'auto', paddingBottom: '20px' }}>
-        <Typography variant="body2" sx={{ marginBottom: '10px' }}>
+        <Typography variant="body2" sx={{ marginBottom: '10px', color: '#7cfec3', fontSize: '0.9rem' }}>
           saliva.diva.label@gmail.com
         </Typography>
-        <Typography variant="body2">newsletter@salivadiva.pt</Typography>
+        <Typography variant="body2" sx={{ color: '#7cfec3', fontSize: '0.9rem' }}>
+          newsletter@salivadiva.pt
+        </Typography>
       </Box>
     </Box>
   );
@@ -196,30 +146,79 @@ export default function Navigation() {
           boxShadow: 'none',
           backdropFilter: show ? 'blur(10px)' : 'none',
           transition: 'all 0.5s ease-in',
-          transform: show ? 'translateY(0)' : 'translateY(-100%)',
+          transform: (show || open) ? 'translateY(0)' : 'translateY(-100%)',
           backgroundColor: show ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
           zIndex: 1100,
         }}
       >
-        {isMobile ? (
-          <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Link href="/">
-              <Image
-                src={logoSecondary}
-                alt="Saliva Diva Logo"
-                width={52}
-                height={52}
-                priority
-                style={{ cursor: 'pointer' }}
-              />
-            </Link>
-            <IconButton onClick={() => setOpen(true)}>
-              <MenuIcon sx={{ fontSize: '2rem' }} />
-            </IconButton>
-          </Toolbar>
-        ) : (
-          <DesktopNav />
-        )}
+        {/* Mobile Toolbar */}
+        <Toolbar sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'space-between', padding: '12px 16px', minHeight: '64px' }}>
+          <IconButton sx={{ padding: 0 }}>
+            <Image
+              src={logoSecondary}
+              alt="Saliva Diva Logo"
+              width={52}
+              height={52}
+              priority
+              style={{ cursor: 'pointer' }}
+            />
+          </IconButton>
+          <IconButton onClick={() => setOpen(true)} sx={{ padding: '8px' }}>
+            <MenuIcon sx={{ fontSize: '2rem', color: '#7cfec3' }} />
+          </IconButton>
+        </Toolbar>
+
+        {/* Desktop Toolbar */}
+        <Toolbar
+          sx={{
+            display: { xs: 'none', md: 'flex' },
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            width: '100%',
+            maxWidth: '1200px',
+            margin: '0 auto',
+          }}
+        >
+          {/* Logo */}
+          <Link href="/">
+            <Image
+              src={logoSecondary}
+              alt="Saliva Diva Logo"
+              width={52}
+              height={52}
+              priority
+              style={{ cursor: 'pointer' }}
+            />
+          </Link>
+
+          {/* Desktop Navigation Links */}
+          <Box sx={{ display: 'flex', gap: 4 }}>
+            {navLinks.map((link) => (
+              <Link key={link.href} href={link.href} style={{ textDecoration: 'none' }}>
+                <Typography
+                  sx={{
+                    cursor: 'pointer',
+                    fontSize: '0.95rem',
+                    fontWeight: 500,
+                    color: '#7cfec3',
+                    transition: 'all 0.3s ease',
+                    textDecoration: 'none',
+                    '&:hover': {
+                      opacity: 0.8,
+                    },
+                  }}
+                >
+                  {link.text}
+                </Typography>
+              </Link>
+            ))}
+          </Box>
+
+          {/* Menu Icon - Desktop */}
+          <IconButton onClick={() => setOpen(true)} sx={{ padding: 0 }}>
+            <MenuIcon sx={{ fontSize: '2rem', color: '#7cfec3' }} />
+          </IconButton>
+        </Toolbar>
       </AppBar>
 
       {/* Drawer */}
@@ -229,8 +228,8 @@ export default function Navigation() {
         onClose={() => setOpen(false)}
         sx={{
           '& .MuiDrawer-paper': {
-            width: '100vw',
-            backgroundColor: '#f5f5f5',
+            backgroundColor: '#7249b0',
+            overflow: 'auto',
           },
         }}
       >

@@ -32,11 +32,15 @@ body {
   font-family: 'Akzidenz Grotesk Pro', Arial, Helvetica, sans-serif;
   margin: 0;
   padding: 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 #__next {
   position: relative;
   z-index: 1;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 /* Remove all underlines */
