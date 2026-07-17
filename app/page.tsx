@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Container, Typography, Box, Button } from '@mui/material';
+import { Container, Box } from '@mui/material';
 import homepageLogo from '@/public/assets/homepage_logo.png';
 
 export default function Home() {
@@ -25,20 +25,6 @@ export default function Home() {
           priority
           style={{ width: '100%', height: 'auto', cursor: 'pointer' }}
         />
-        <Typography variant="h2" sx={{ mt: 4, textAlign: 'center', color: '#7cfec3' }}>
-          Saliva Diva
-        </Typography>
-        <Typography
-          variant="body1"
-          sx={{
-            textAlign: 'center',
-            maxWidth: 600,
-            mt: 2,
-            color: '#7cfec3',
-          }}
-        >
-          Explore our collection of artists, releases, and live events.
-        </Typography>
       </Box>
     </Container>
   );

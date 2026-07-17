@@ -7,7 +7,11 @@ export default function VideoBackground() {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
+    const timeoutId = window.setTimeout(() => {
+      setIsClient(true);
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
   }, []);
 
   if (!isClient) {

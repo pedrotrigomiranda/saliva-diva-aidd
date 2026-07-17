@@ -15,8 +15,8 @@ const theme = createTheme({
       main: '#7cfec3', // Cyan/Mint
     },
     background: {
-      default: '#7249b0',
-      paper: '#7249b0',
+      default: 'transparent',
+      paper: 'transparent',
     },
     text: {
       primary: '#ffffff',

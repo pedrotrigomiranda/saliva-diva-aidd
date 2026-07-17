@@ -16,19 +16,102 @@ import CloseIcon from '@mui/icons-material/Close';
 import logoSecondary from '@/public/assets/logo_transparent_secondary.png';
 import logoPrimary from '@/public/assets/logo_transparent_primary.png';
 
+const navLinks = [
+  { text: 'LANÇAMENTOS', href: '/releases' },
+  { text: 'ARTISTAS', href: '/artists' },
+  { text: 'MANIFESTO', href: '/manifesto' },
+  { text: 'CALENDIVÁRIO', href: '/calendar' },
+  { text: 'CONTACTOS', href: '/contacts' },
+];
+
+interface DrawerContentProps {
+  onClose: () => void;
+}
+
+function DrawerContent({ onClose }: DrawerContentProps) {
+  return (
+    <Box
+      sx={{
+        width: '100%',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'flex-start',
+        backgroundColor: '#7cfec3',
+        px: { xs: 2, md: 0 },
+        py: 3,
+        boxSizing: 'border-box',
+      }}
+    >
+      <Box sx={{ width: '100%', maxWidth: '1200px', mx: 'auto' }}>
+        {/* Drawer Header */}
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            width: '100%',
+            marginBottom: '40px',
+          }}
+        >
+          <Link href="/">
+            <Image
+              src={logoPrimary}
+              alt="Saliva Diva Logo"
+              width={52}
+              height={52}
+              style={{ cursor: 'pointer' }}
+            />
+          </Link>
+          <IconButton onClick={onClose} sx={{ padding: { xs: '8px', md: 0 } }}>
+            <CloseIcon sx={{ fontSize: '2rem', color: '#7249b0' }} />
+          </IconButton>
+        </Box>
+
+        {/* Drawer Links */}
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3, width: '100%' }}>
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={onClose}
+              style={{ textDecoration: 'none', width: '100%' }}
+            >
+              <Typography
+                variant="h5"
+                sx={{
+                  cursor: 'pointer',
+                  fontWeight: 'bold',
+                  color: '#7249b0',
+                  fontSize: '3rem',
+                  lineHeight: 1,
+                  transition: 'all 0.3s ease',
+                  textDecoration: 'none',
+                  textAlign: 'left',
+                }}
+              >
+                {link.text}
+              </Typography>
+            </Link>
+          ))}
+          <Typography variant="body2" sx={{ color: '#7249b0', fontSize: '1.5rem' }}>
+            saliva.diva.label@gmail.com
+          </Typography>
+          <Typography variant="body2" sx={{ color: '#7249b0', fontSize: '1.5rem' }}>
+            newsletter@salivadiva.pt
+          </Typography>
+        </Box>
+      </Box>
+    </Box>
+  );
+}
+
 export default function Navigation() {
   const [open, setOpen] = useState(false);
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
-  }, []);
-
-  useEffect(() => {
-    if (!isClient) return;
-
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
@@ -50,91 +133,7 @@ export default function Navigation() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY, isClient, open]);
-
-  const navLinks = [
-    { text: 'RELEASES', href: '/releases' },
-    { text: 'ARTISTAS', href: '/artists' },
-    { text: 'MANIFESTO', href: '/manifesto' },
-    { text: 'CALENDIVÁRIO', href: '/calendar' },
-    { text: 'CONTACTOS', href: '/contacts' },
-  ];
-
-  const DrawerContent = () => (
-    <Box
-      sx={{
-        width: '100%',
-        height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        backgroundColor: '#7249b0',
-        padding: '20px',
-        boxSizing: 'border-box',
-      }}
-    >
-      {/* Drawer Header */}
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          marginBottom: '40px',
-        }}
-      >
-        <Link href="/">
-          <Image
-            src={logoPrimary}
-            alt="Saliva Diva Logo"
-            width={52}
-            height={52}
-            style={{ cursor: 'pointer' }}
-          />
-        </Link>
-        <IconButton onClick={() => setOpen(false)}>
-          <CloseIcon sx={{ fontSize: '2rem', color: '#7cfec3' }} />
-        </IconButton>
-      </Box>
-
-      {/* Drawer Links */}
-      <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-        {navLinks.map((link) => (
-          <Link
-            key={link.href}
-            href={link.href}
-            onClick={() => setOpen(false)}
-            style={{ textDecoration: 'none' }}
-          >
-            <Typography
-              variant="h5"
-              sx={{
-                cursor: 'pointer',
-                fontWeight: 'bold',
-                color: '#7cfec3',
-                fontSize: '1.25rem',
-                transition: 'all 0.3s ease',
-                textDecoration: 'none',
-                '&:hover': {
-                  opacity: 0.8,
-                },
-              }}
-            >
-              {link.text}
-            </Typography>
-          </Link>
-        ))}
-      </Box>
-
-      {/* Contact Info */}
-      <Box sx={{ marginTop: 'auto', paddingBottom: '20px' }}>
-        <Typography variant="body2" sx={{ marginBottom: '10px', color: '#7cfec3', fontSize: '0.9rem' }}>
-          saliva.diva.label@gmail.com
-        </Typography>
-        <Typography variant="body2" sx={{ color: '#7cfec3', fontSize: '0.9rem' }}>
-          newsletter@salivadiva.pt
-        </Typography>
-      </Box>
-    </Box>
-  );
+  }, [lastScrollY, open]);
 
   return (
     <>
@@ -144,10 +143,9 @@ export default function Navigation() {
         sx={{
           background: 'transparent',
           boxShadow: 'none',
-          backdropFilter: show ? 'blur(10px)' : 'none',
           transition: 'all 0.5s ease-in',
           transform: (show || open) ? 'translateY(0)' : 'translateY(-100%)',
-          backgroundColor: show ? 'rgba(255, 255, 255, 0.1)' : 'transparent',
+          backgroundColor: 'transparent',
           zIndex: 1100,
         }}
       >
@@ -190,30 +188,6 @@ export default function Navigation() {
               style={{ cursor: 'pointer' }}
             />
           </Link>
-
-          {/* Desktop Navigation Links */}
-          <Box sx={{ display: 'flex', gap: 4 }}>
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} style={{ textDecoration: 'none' }}>
-                <Typography
-                  sx={{
-                    cursor: 'pointer',
-                    fontSize: '0.95rem',
-                    fontWeight: 500,
-                    color: '#7cfec3',
-                    transition: 'all 0.3s ease',
-                    textDecoration: 'none',
-                    '&:hover': {
-                      opacity: 0.8,
-                    },
-                  }}
-                >
-                  {link.text}
-                </Typography>
-              </Link>
-            ))}
-          </Box>
-
           {/* Menu Icon - Desktop */}
           <IconButton onClick={() => setOpen(true)} sx={{ padding: 0 }}>
             <MenuIcon sx={{ fontSize: '2rem', color: '#7cfec3' }} />
@@ -226,14 +200,16 @@ export default function Navigation() {
         anchor="left"
         open={open}
         onClose={() => setOpen(false)}
-        sx={{
-          '& .MuiDrawer-paper': {
-            backgroundColor: '#7249b0',
+        PaperProps={{
+          sx: {
+            width: '100vw',
+            maxWidth: '100vw',
+            backgroundColor: '#7cfec3',
             overflow: 'auto',
           },
         }}
       >
-        <DrawerContent />
+        <DrawerContent onClose={() => setOpen(false)} />
       </Drawer>
     </>
   );
