@@ -37,12 +37,19 @@ export default function ArtistsPage() {
               display: 'flex',
               flexWrap: 'wrap',
               flexDirection: 'row',
-              justifyContent: 'space-evenly',
+              justifyContent: 'center',
               alignItems: 'center',
-              margin: 4,
+              margin: '0 auto',
+              padding: '32px 16px',
+              boxSizing: 'border-box',
               '@media (max-width: 900px)': {
+                width: '100%',
+                margin: '0 auto',
+                padding: '0 16px',
                 flexDirection: 'column',
-                margin: 2,
+                alignItems: 'center',
+                justifyContent: 'center',
+                boxSizing: 'border-box',
               },
             }}
           >

@@ -33,14 +33,16 @@ function DrawerContent({ onClose }: DrawerContentProps) {
     <Box
       sx={{
         width: '100%',
-        minHeight: '100vh',
+        height: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'flex-start',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         backgroundColor: '#7cfec3',
-        px: { xs: 2, md: 0 },
-        py: 3,
+        px: { xs: 3, md: 3 },
+        py: { xs: 2, md: 3 },
         boxSizing: 'border-box',
+        overflow: 'hidden',
       }}
     >
       <Box sx={{ width: '100%', maxWidth: '1200px', mx: 'auto' }}>
@@ -51,7 +53,7 @@ function DrawerContent({ onClose }: DrawerContentProps) {
             justifyContent: 'space-between',
             alignItems: 'center',
             width: '100%',
-            marginBottom: '40px',
+            marginBottom: { xs: '24px', md: '40px' },
           }}
         >
           <Link href="/">
@@ -63,13 +65,13 @@ function DrawerContent({ onClose }: DrawerContentProps) {
               style={{ cursor: 'pointer' }}
             />
           </Link>
-          <IconButton onClick={onClose} sx={{ padding: { xs: '8px', md: 0 } }}>
+          <IconButton onClick={onClose} sx={{ padding: { xs: '8px', md: 0 } }} aria-label="Close menu">
             <CloseIcon sx={{ fontSize: '2rem', color: '#7249b0' }} />
           </IconButton>
         </Box>
 
         {/* Drawer Links */}
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3, width: '100%' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 2.5, md: 3 }, width: '100%' }}>
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -83,8 +85,8 @@ function DrawerContent({ onClose }: DrawerContentProps) {
                   cursor: 'pointer',
                   fontWeight: 'bold',
                   color: '#7249b0',
-                  fontSize: '3rem',
-                  lineHeight: 1,
+                  fontSize: { xs: '2.2rem', sm: '2.5rem', md: '3rem' },
+                  lineHeight: 1.05,
                   transition: 'all 0.3s ease',
                   textDecoration: 'none',
                   textAlign: 'left',
@@ -94,13 +96,40 @@ function DrawerContent({ onClose }: DrawerContentProps) {
               </Typography>
             </Link>
           ))}
-          <Typography variant="body2" sx={{ color: '#7249b0', fontSize: '1.5rem' }}>
-            saliva.diva.label@gmail.com
-          </Typography>
-          <Typography variant="body2" sx={{ color: '#7249b0', fontSize: '1.5rem' }}>
-            newsletter@salivadiva.pt
-          </Typography>
         </Box>
+      </Box>
+
+      <Box
+        component="section"
+        sx={{
+          width: '100%',
+          maxWidth: '1200px',
+          mx: 'auto',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 1,
+          pt: { xs: 2, md: 3 },
+          borderTop: '1px solid rgba(114, 73, 176, 0.2)',
+        }}
+      >
+        <Typography
+          variant="subtitle1"
+          sx={{
+            color: '#7249b0',
+            fontWeight: 'bold',
+            fontSize: { xs: '1rem', sm: '1.1rem' },
+            textTransform: 'uppercase',
+            letterSpacing: '0.15em',
+          }}
+        >
+          Contactos
+        </Typography>
+        <Typography variant="body2" sx={{ color: '#7249b0', fontSize: { xs: '1rem', sm: '1.2rem' } }}>
+          saliva.diva.label@gmail.com
+        </Typography>
+        <Typography variant="body2" sx={{ color: '#7249b0', fontSize: { xs: '1rem', sm: '1.2rem' } }}>
+          newsletter@salivadiva.pt
+        </Typography>
       </Box>
     </Box>
   );
@@ -147,11 +176,12 @@ export default function Navigation() {
           transform: (show || open) ? 'translateY(0)' : 'translateY(-100%)',
           backgroundColor: 'transparent',
           zIndex: 1100,
+          touchAction: 'manipulation',
         }}
       >
         {/* Mobile Toolbar */}
         <Toolbar sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'space-between', padding: '12px 16px', minHeight: '64px' }}>
-          <IconButton sx={{ padding: 0 }}>
+          <IconButton sx={{ padding: 0 }} aria-label="Saliva Diva home">
             <Image
               src={logoSecondary}
               alt="Saliva Diva Logo"
@@ -161,7 +191,7 @@ export default function Navigation() {
               style={{ cursor: 'pointer' }}
             />
           </IconButton>
-          <IconButton onClick={() => setOpen(true)} sx={{ padding: '8px' }}>
+          <IconButton onClick={() => setOpen(true)} sx={{ padding: '8px', touchAction: 'manipulation' }} aria-label="Open menu">
             <MenuIcon sx={{ fontSize: '2rem', color: '#7cfec3' }} />
           </IconButton>
         </Toolbar>
@@ -189,7 +219,7 @@ export default function Navigation() {
             />
           </Link>
           {/* Menu Icon - Desktop */}
-          <IconButton onClick={() => setOpen(true)} sx={{ padding: 0 }}>
+          <IconButton onClick={() => setOpen(true)} sx={{ padding: 0, touchAction: 'manipulation' }} aria-label="Open menu">
             <MenuIcon sx={{ fontSize: '2rem', color: '#7cfec3' }} />
           </IconButton>
         </Toolbar>
@@ -200,12 +230,15 @@ export default function Navigation() {
         anchor="left"
         open={open}
         onClose={() => setOpen(false)}
+        ModalProps={{ keepMounted: true }}
         PaperProps={{
           sx: {
             width: '100vw',
             maxWidth: '100vw',
+            height: '100vh',
+            maxHeight: '100vh',
             backgroundColor: '#7cfec3',
-            overflow: 'auto',
+            overflow: 'hidden',
           },
         }}
       >

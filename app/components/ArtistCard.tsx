@@ -31,6 +31,7 @@ export default function ArtistCard({ artist }: ArtistCardProps) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        overflow: 'hidden',
         transition: 'all 0.5s ease-in',
         '&:hover .artist-image': {
           opacity: 0.7,
@@ -41,7 +42,10 @@ export default function ArtistCard({ artist }: ArtistCardProps) {
         '@media (max-width: 900px)': {
           width: '260px',
           height: '260px',
-          margin: 1,
+          margin: '0 auto',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           '& .artist-image': {
             opacity: 0.7,
           },
@@ -61,10 +65,14 @@ export default function ArtistCard({ artist }: ArtistCardProps) {
         alt={name}
         className="artist-image"
         sx={{
-          width: '100%',
-          height: '100%',
+          maxWidth: '100%',
+          maxHeight: '100%',
           objectFit: 'contain',
           transition: 'all 0.5s ease-in',
+          '@media (max-width: 900px)': {
+            width: 'auto',
+            height: 'auto',
+          },
           '&:hover': {
             transition: 'all 0.5s ease-out',
           },

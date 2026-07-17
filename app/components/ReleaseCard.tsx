@@ -120,12 +120,30 @@ export default function ReleaseCard({ release }: ReleaseCardProps) {
            padding: 0,
            marginTop: 2,
            marginBottom: 2,
+           '@media (max-width: 900px)': {
+             marginTop: 1,
+             marginBottom: 1,
+           },
         }}
       >
-         <Typography variant="h1" sx={{ color: '#7cfec2', margin: 0 }}>
+         <Typography
+           variant="h1"
+           sx={{
+             color: '#7cfec2',
+             margin: 0,
+             fontSize: { xs: '1.25rem', sm: '1.6rem', md: '4.2rem' },
+           }}
+         >
           {artist}
         </Typography>
-         <Typography variant="h3" sx={{ color: '#7cfec2', margin: 0 }}>
+         <Typography
+           variant="h3"
+           sx={{
+             color: '#7cfec2',
+             margin: 0,
+             fontSize: { xs: '0.85rem', sm: '1rem', md: '1.8rem' },
+           }}
+         >
           {name}
         </Typography>
       </Box>
@@ -136,7 +154,7 @@ export default function ReleaseCard({ release }: ReleaseCardProps) {
           width: '100%',
           display: 'flex',
           flexDirection: 'row',
-          margin: 2,
+          margin: { xs: 1, md: 2 },
           '@media (max-width: 900px)': {
             flexDirection: 'column',
           },
@@ -214,11 +232,24 @@ export default function ReleaseCard({ release }: ReleaseCardProps) {
             },
           }}
         >
-          <Typography variant="body1" sx={{ marginBottom: 2 }}>
+          <Typography
+            variant="body1"
+            sx={{
+              marginBottom: 2,
+              fontSize: { xs: '0.8rem', sm: '0.9rem', md: '1.2rem' },
+            }}
+          >
             {review}
           </Typography>
 
-          <Typography variant="h6" sx={{ color: '#7cfec2', marginBottom: 1 }}>
+          <Typography
+            variant="h6"
+            sx={{
+              color: '#7cfec2',
+              marginBottom: 1,
+              fontSize: { xs: '0.7rem', sm: '0.75rem', md: '0.8rem' },
+            }}
+          >
             <MuiLink
               href={bandcampLink}
               target="_blank"
@@ -235,7 +266,14 @@ export default function ReleaseCard({ release }: ReleaseCardProps) {
             </MuiLink>
           </Typography>
 
-          <Typography variant="h6" sx={{ color: '#7cfec2', marginBottom: 2 }}>
+          <Typography
+            variant="h6"
+            sx={{
+              color: '#7cfec2',
+              marginBottom: 2,
+              fontSize: { xs: '0.65rem', md: '0.8rem' },
+            }}
+          >
             <MuiLink
               href={bandcampLink}
               target="_blank"
