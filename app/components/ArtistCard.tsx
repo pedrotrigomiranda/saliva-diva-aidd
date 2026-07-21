@@ -114,6 +114,9 @@ export default function ArtistCard({ artist }: ArtistCardProps) {
               '&:hover': {
                 opacity: 0.8,
               },
+              '@media (max-width: 900px)': {
+                fontSize: '1.7rem',
+              },
             }}
           >
             {name}

@@ -50,6 +50,7 @@ export default function ArtistsPage() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 boxSizing: 'border-box',
+                gap: 3,
               },
             }}
           >

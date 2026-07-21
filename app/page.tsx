@@ -23,7 +23,12 @@ export default function Home() {
           src={homepageLogo}
           alt="Saliva Diva Homepage Logo"
           priority
-          style={{ width: '100%', height: 'auto', cursor: 'pointer' }}
+          style={{
+            width: '100%',
+            maxWidth: '90vw',
+            height: 'auto',
+            cursor: 'pointer',
+          }}
         />
       </Box>
     </Container>

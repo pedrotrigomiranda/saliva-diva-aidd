@@ -1,45 +1,18 @@
 'use client';
 
 import { Box } from '@mui/material';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 export default function VideoBackground() {
-  const [isClient, setIsClient] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
-    const timeoutId = window.setTimeout(() => {
-      setIsClient(true);
-    }, 0);
-
-    return () => window.clearTimeout(timeoutId);
-  }, []);
-
-  useEffect(() => {
-    if (isClient && videoRef.current) {
+    if (videoRef.current) {
       videoRef.current.play().catch(() => {
         // Autoplay may still be blocked in some mobile browsers.
       });
     }
-  }, [isClient]);
-
-  if (!isClient) {
-    return (
-      <Box
-        sx={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          zIndex: -1,
-          overflow: 'hidden',
-          backgroundColor: '#000',
-          pointerEvents: 'none',
-        }}
-      />
-    );
-  }
+  }, []);
 
   return (
     <Box
@@ -48,10 +21,12 @@ export default function VideoBackground() {
         top: 0,
         left: 0,
         width: '100vw',
-        height: '100vh',
+        height: '100svh',
+        minHeight: '100vh',
         zIndex: -1,
         overflow: 'hidden',
         pointerEvents: 'none',
+        backgroundColor: '#7249b0',
       }}
     >
       <video
