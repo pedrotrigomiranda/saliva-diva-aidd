@@ -20,17 +20,33 @@ export default function CalendarPage() {
           variant="h1"
           component="h1"
           sx={{
-            fontSize: { xs: '2.5rem', sm: '3rem', md: '3.75rem' },
+            fontSize: { xs: '2rem', sm: '3.5rem', md: '4.5rem' },
             fontWeight: 'bold',
+            lineHeight: 1,
+            textAlign: { xs: 'center', md: 'left' },
+            width: '100%',
+            maxWidth: { xs: '340px', sm: '584px', md: '768px', lg: '1032px' },
+            mx: 'auto',
           }}
         >
-          Calendivário
+          CALENDIVÁRIO
         </Typography>
 
         {calendar.map((section) => (
-          <Box key={section.title} sx={{ width: '100%', maxWidth: 900 }}>
+          <Box
+            key={section.title}
+            sx={{
+              width: '100%',
+              maxWidth: { xs: '340px', sm: '584px', md: '768px', lg: '1032px' },
+              mx: 'auto',
+            }}
+          >
             <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3, mt: 4 }}>
-              <Typography variant="h2" component="h2" sx={{ fontSize: '2.5rem', fontWeight: 'bold' }}>
+              <Typography
+                variant="h2"
+                component="h2"
+                sx={{ fontSize: '1.6rem', fontWeight: 'bold', textTransform: 'uppercase' }}
+              >
                 {section.title}
               </Typography>
               <Typography variant="subtitle1" sx={{ color: 'text.secondary', fontSize: '1.4rem' }}>

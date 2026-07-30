@@ -38,9 +38,13 @@ export default function ReleasesPage() {
           variant="h1"
           component="h1"
           sx={{
-            fontSize: { xs: '2rem', sm: '2.4rem', md: '3rem' },
+            fontSize: { xs: '2rem', sm: '3.5rem', md: '4.5rem' },
             fontWeight: 'bold',
-            textAlign: 'center',
+            lineHeight: 1,
+            textAlign: { xs: 'center', md: 'left' },
+            width: '100%',
+            maxWidth: { xs: '340px', sm: '584px', md: '768px', lg: '1032px' },
+            mx: 'auto',
             marginBottom: 4,
           }}
         >
@@ -53,12 +57,8 @@ export default function ReleasesPage() {
             display: 'flex',
             flexDirection: 'column',
             marginTop: 9,
-            '@media (min-width: 900px)': {
-              maxWidth: '1062px',
-            },
-            '@media (max-width: 900px)': {
-              padding: '0px 50px',
-            },
+            maxWidth: { xs: '340px', sm: '584px', md: '768px', lg: '1032px' },
+            mx: 'auto',
           }}
         >
           {sortedYears.map((year) => (
@@ -69,6 +69,7 @@ export default function ReleasesPage() {
                 sx={{
                   fontSize: { xs: '1.8rem', sm: '2.2rem', md: '5rem' },
                   fontWeight: 'bold',
+                  textAlign: { xs: 'center', md: 'left' },
                   marginBottom: 1,
                 }}
               >

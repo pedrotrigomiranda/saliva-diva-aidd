@@ -23,10 +23,10 @@ export default function ArtistCard({ artist }: ArtistCardProps) {
   return (
     <Box
       sx={{
-        width: '400px',
-        height: '400px',
+        width: '100%',
+        maxWidth: { xs: '340px', sm: '280px', md: '240px', lg: '240px' },
+        aspectRatio: '1 / 1',
         position: 'relative',
-        margin: 2,
         backgroundColor: '#7249b0',
         display: 'flex',
         alignItems: 'center',
@@ -40,8 +40,8 @@ export default function ArtistCard({ artist }: ArtistCardProps) {
           opacity: 1,
         },
         '@media (max-width: 900px)': {
-          width: '260px',
-          height: '260px',
+          width: '100%',
+          maxWidth: '340px',
           margin: '0 auto',
           display: 'flex',
           alignItems: 'center',
@@ -53,10 +53,6 @@ export default function ArtistCard({ artist }: ArtistCardProps) {
             opacity: 1,
           },
         },
-        '@media (max-width: 350px)': {
-          width: '200px',
-          height: '200px',
-        },
       }}
     >
       <Box
@@ -65,13 +61,13 @@ export default function ArtistCard({ artist }: ArtistCardProps) {
         alt={name}
         className="artist-image"
         sx={{
-          maxWidth: '100%',
-          maxHeight: '100%',
+          width: '100%',
+          height: '100%',
           objectFit: 'contain',
           transition: 'all 0.5s ease-in',
           '@media (max-width: 900px)': {
-            width: 'auto',
-            height: 'auto',
+            width: '100%',
+            height: '100%',
           },
           '&:hover': {
             transition: 'all 0.5s ease-out',
@@ -110,6 +106,8 @@ export default function ArtistCard({ artist }: ArtistCardProps) {
             sx={{
               margin: 2,
               color: '#7cfec2',
+              fontSize: '1.6rem',
+              textTransform: 'uppercase',
               textDecoration: 'none',
               '&:hover': {
                 opacity: 0.8,

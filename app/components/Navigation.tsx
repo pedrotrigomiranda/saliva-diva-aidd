@@ -46,10 +46,16 @@ function DrawerContent({ onClose }: { onClose: () => void }) {
             justifyContent: 'space-between',
             alignItems: 'center',
             width: '100%',
+            pl: 0,
             marginBottom: { xs: '24px', md: '40px' },
           }}
         >
-          <Link href="/">
+          <Link
+            href="/"
+            onClick={onClose}
+            aria-label="Saliva Diva home"
+            style={{ display: 'inline-flex', alignItems: 'center', textDecoration: 'none' }}
+          >
             <Image
               src={logoPrimary}
               alt="Saliva Diva Logo"
@@ -79,13 +85,13 @@ function DrawerContent({ onClose }: { onClose: () => void }) {
           </Box>
         </Box>
 
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 2.5, md: 3 }, width: '100%' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: { xs: 2.5, md: 3 }, width: '100%', pl: 0 }}>
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={onClose}
-              style={{ textDecoration: 'none', width: '100%' }}
+              style={{ display: 'block', textDecoration: 'none', width: '100%' }}
             >
               <Typography
                 variant="h5"
@@ -95,6 +101,7 @@ function DrawerContent({ onClose }: { onClose: () => void }) {
                   color: '#7249b0',
                   fontSize: { xs: '2rem', sm: '2.3rem', md: '2.8rem' },
                   lineHeight: 1.05,
+                  m: 0,
                   transition: 'all 0.25s ease',
                   textDecoration: 'none',
                   textAlign: 'left',
@@ -116,6 +123,7 @@ function DrawerContent({ onClose }: { onClose: () => void }) {
           display: 'flex',
           flexDirection: 'column',
           gap: 1,
+          mt: { xs: 4, md: 5 },
           pt: { xs: 2, md: 3 },
           borderTop: '1px solid rgba(114, 73, 176, 0.2)',
         }}

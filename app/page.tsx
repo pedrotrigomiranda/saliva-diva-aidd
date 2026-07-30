@@ -9,14 +9,14 @@ export default function Home() {
     <Container maxWidth="lg">
       <Box
         sx={{
-          minHeight: '100vh',
+          minHeight: '100dvh',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
           gap: 3,
-          py: 8,
-          pt: 12,
+          py: 0,
+          pt: 0,
         }}
       >
         <Image
@@ -24,9 +24,11 @@ export default function Home() {
           alt="Saliva Diva Homepage Logo"
           priority
           style={{
+            display: 'block',
             width: '100%',
             maxWidth: '90vw',
             height: 'auto',
+            margin: '0 auto',
             cursor: 'pointer',
           }}
         />

@@ -3,6 +3,9 @@
 ## Mission
 You are helping maintain and extend the Saliva Diva website. The goal is to implement new features and fix bugs while preserving the existing visual identity, content-driven structure, and Portuguese-language experience.
 
+## UI/UX and Front-End Specialist Prompt
+For UI, UX, layout, interaction, accessibility, and front-end refinement work, use the repository prompt at [.github/prompts/ui-ux-front-end.prompt.md](.github/prompts/ui-ux-front-end.prompt.md). It provides focused guidance for visual clarity, hierarchy, responsive polish, and alignment with the Saliva Diva brand.
+
 ## Project Overview
 This is a static, content-focused Next.js website for Saliva Diva. The site presents:
 - artists
