@@ -59,14 +59,14 @@ h1, h2, h3, h4, h5, h6 {
   align-items: center;
   justify-content: center;
   border: none;
-  background: rgba(8, 3, 18, 0.35);
+  background: transparent;
   padding: 12px;
   min-width: 52px;
   min-height: 52px;
-  border-radius: 50%;
+  border-radius: 0;
   cursor: pointer;
   color: #7cfec3;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.28);
+  box-shadow: none;
 }
 
 .mobile-nav-toggle svg {

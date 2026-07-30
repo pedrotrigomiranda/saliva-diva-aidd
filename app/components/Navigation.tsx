@@ -270,14 +270,14 @@ export default function Navigation() {
               alignItems: 'center',
               justifyContent: 'center',
               border: 'none',
-              background: 'rgba(8, 3, 18, 0.35)',
-              boxShadow: '0 8px 30px rgba(0, 0, 0, 0.28)',
-              backdropFilter: 'blur(6px)',
-              WebkitBackdropFilter: 'blur(6px)',
+              background: 'transparent',
+              boxShadow: 'none',
+              backdropFilter: 'none',
+              WebkitBackdropFilter: 'none',
               padding: '12px',
               minWidth: 52,
               minHeight: 52,
-              borderRadius: '50%',
+              borderRadius: 0,
               cursor: 'pointer',
               color: '#7cfec3',
               transition: 'transform 0.2s ease, background-color 0.2s ease',
@@ -328,7 +328,6 @@ export default function Navigation() {
           overflowY: 'auto',
           overscrollBehavior: 'contain',
         }}
-        onClick={handleCloseDrawer}
       >
         <DrawerContent onClose={handleCloseDrawer} />
       </Box>

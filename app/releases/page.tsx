@@ -67,10 +67,9 @@ export default function ReleasesPage() {
                 variant="h2"
                 component="h2"
                 sx={{
-                  fontSize: { xs: '1.5rem', sm: '1.8rem', md: '2.2rem' },
+                  fontSize: { xs: '1.8rem', sm: '2.2rem', md: '5rem' },
                   fontWeight: 'bold',
-                  textAlign: 'center',
-                  marginBottom: 3,
+                  marginBottom: 1,
                 }}
               >
                 {year}
