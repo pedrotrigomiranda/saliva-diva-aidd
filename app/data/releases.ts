@@ -1,4 +1,46 @@
 const releases = [
+    {
+    diva: 32,
+    type: "album",
+    name: "Outra vez arroz",
+    artist: "Baleia Baleia Baleia",
+    year: 2026,
+    cover: "/assets/cover_outra_vez_arroz.jpg",
+    banner: "/assets/banner_outra_vez_arroz.jpeg",
+    instagram: "https://www.instagram.com/baleia_baleia_baleia/",
+    facebook: "https://www.facebook.com/Baleiax3/",
+    email: "baleiax3@gmail.com",
+    youtube: "https://www.youtube.com/@baleia_baleia_baleia",
+    spotify:
+      "",
+    bandcampLink:
+      "https://salivadiva.bandcamp.com/album/outra-vez-arroz",
+    bandcampSrc:
+      "https://bandcamp.com/EmbeddedPlayer/album=4126805258/size=small/bgcol=ffffff/linkcol=7249b1/artwork=none/transparent=true/",
+    review:
+      'Quando os cozinheiros acertam no tempero, podem servir o mesmo todos os dias. Tendo criado uma receita própria para o formato "baixo, bateria e voz", BALEIA BALEIA BALEIA servem "OUTRA VEZ ARROZ" com o toque de mestres de sushi. Não há como deixar no prato os ritmos de caril e mandioca, o tostar das sementes da ironia na voz, e a caramelização das malhas de baixo. A esta combinação tão aromática, basta juntar arroz. Riffs, melodias e refrões lembram que o rock alternativo dos 90s não só entrou na intemporalidade, como ainda deixou caminhos por explorar. Enquanto houver combinações de especiarias por experimentar, o arroz terá sempre um gosto diferente, e os BALEIA BALEIA BALEIA são mestres da colher de pau. O pára-arranca é mais caótico que no grunge, o punk leva efeitos nunca antes ouvidos por alguém de crista, e embora as preocupações sociais continuem a ser o foco principal das letras (como atesta "ANTIFA AO CONTRÁRIO É OTÁRIO", que abre o disco com Scúru Fitchádu e Evaya), a banda aventura-se despudoradamente no humor ("SUPER-AGROBETO"), no niilismo ("NPC") e polvilha os intervalos de um horizonte duro de aceitar com o açucar e canela da fragilidade acolhida ("DEIXA O FRIO ENTRAR") e do prazer como salvação ("HEDONINHO"). "OUTRA VEZ ARROZ" é BALEIA BALEIA BALEIA a entrar na meia-idade sem queimar no tacho, malandrinho no trato, agulha no tempero.',
+  },
+  {
+    diva: 31,
+    type: "album",
+    name: "Unção Honrosa",
+    artist: "Astra Vaga",
+    year: 2026,
+    cover: "/assets/cover_uncao_honrosa.jpg",
+    banner: "/assets/banner_uncao_honrosa.jpeg",
+    instagram: "https://www.instagram.com/astra_vaga/",
+    facebook: "https://www.facebook.com/p/Astra-Vaga-61575689038008/",
+    email: "info@astravaga.com",
+    youtube: "https://www.youtube.com/@AstraVaga",
+    spotify:
+      "https://open.spotify.com/album/70ZwLUFwxBFgFoaCRyfP6H?si=Fs_wQpBjT6CRtUJxS7UVkw",
+    bandcampLink:
+      "https://salivadiva.bandcamp.com/album/un-o-honrosa",
+    bandcampSrc:
+      "https://bandcamp.com/EmbeddedPlayer/album=602688159/size=small/bgcol=ffffff/linkcol=7249b1/artwork=none/transparent=true/",
+    review:
+      "Astra Vaga nasce da inquietação criativa de Pedro Ledo, nome já familiar na cena musical portuguesa, com um percurso de duas décadas em projetos como The Miami Flu e Lululemon. Nascido da tensão entre uma vida entregue à arte e o peso do mundo corporativo, Astra Vaga é o reflexo de uma mente inquieta, marcada pela nostalgia, pela depressão e pela procura de um novo sentido. A sonoridade mistura o dream pop etéreo com o pulso cru do post-punk, criando um universo simultaneamente delicado e intenso, onde guitarras distorcidas, sintetizadores envolventes e linhas de baixo hipnóticas se entrelaçam com letras em português de forte carga emocional. Cada canção é um fragmento de memória e desejo, um convite a perder-se entre o sonho e a realidade.",
+  },
   {
     diva: 30,
     type: "album",
@@ -231,12 +273,8 @@ const releases = [
     name: "Abaixo das raízes deste jardim",
     artist: "Ξvдyд",
     year: 2024,
-    cover:
-      process.env.PUBLIC_URL +
-      "/assets/cover_abaixo_das_raizes_deste_jardim.jpg",
-    banner:
-      process.env.PUBLIC_URL +
-      "/assets/banner_abaixo_das_raizes_deste_jardim.jpeg",
+    cover: "/assets/cover_abaixo_das_raizes_deste_jardim.jpg",
+    banner: "/assets/banner_abaixo_das_raizes_deste_jardim.jpeg",
     instagram: "https://www.instagram.com/evaya___/",
     facebook: "https://www.facebook.com/evayamusic",
     email: "agente@haushaus.pt",
@@ -298,12 +336,8 @@ const releases = [
     name: "Músicas de dança para pessoas tristes",
     artist: "Luís Contrário",
     year: 2023,
-    cover:
-      process.env.PUBLIC_URL +
-      "/assets/cover_musicas_de_danca_para_pessoas_tristes.jpg",
-    banner:
-      process.env.PUBLIC_URL +
-      "/assets/banner_musicas_de_danca_para_pessoas_tristes.jpeg",
+    cover: "/assets/cover_musicas_de_danca_para_pessoas_tristes.jpg",
+    banner: "/assets/banner_musicas_de_danca_para_pessoas_tristes.jpeg",
     instagram: "https://www.instagram.com/luiscontrario/",
     facebook: "",
     email: "",

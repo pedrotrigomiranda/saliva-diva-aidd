@@ -1,4 +1,16 @@
 const artists = [
+    {
+    name: "Astra Vaga",
+    image: "/assets/artist_astra_vaga.jpeg",
+    bandcampUrl:
+      "https://salivadiva.bandcamp.com/album/un-o-honrosa",
+    instagram: "https://www.instagram.com/astra_vaga/",
+    facebook: "https://www.facebook.com/p/Astra-Vaga-61575689038008/",
+    email: "info@astravaga.com",
+    youtube: "https://www.youtube.com/@AstraVaga",
+    spotify:
+      "https://open.spotify.com/artist/5DQVTLeqbOjijdwbFq2H8G",
+  },
   {
     name: "Mariana Camacho",
     image: "/assets/artist_mariana_camacho.jpeg",
