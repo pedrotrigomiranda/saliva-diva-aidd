@@ -86,7 +86,13 @@ export default function ReleasesPage() {
                 }}
               >
                 {releasesByYear[year].map((release, index) => (
-                  <ReleaseCard key={`${year}-${index}`} release={release} />
+                  <Box
+                    key={`${year}-${index}`}
+                    id={`release-${release.diva}`}
+                    sx={{ width: '100%', scrollMarginTop: { xs: '88px', md: '112px' } }}
+                  >
+                    <ReleaseCard release={release} />
+                  </Box>
                 ))}
               </Box>
             </Box>
