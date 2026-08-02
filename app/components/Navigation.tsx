@@ -23,19 +23,18 @@ function DrawerContent({ onClose }: { onClose: () => void }) {
       sx={{
         position: 'relative',
         width: '100%',
-        minHeight: '100vh',
+        minHeight: '100%',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between',
+        justifyContent: 'flex-start',
         alignItems: 'flex-start',
         backgroundColor: '#7cfec3',
         px: { xs: 4, sm: 5 },
         pt: { xs: 4, sm: 5 },
         pb: { xs: 3, sm: 4 },
         boxSizing: 'border-box',
-        overflowY: 'auto',
         paddingTop: 'env(safe-area-inset-top, 24px)',
-        paddingBottom: 'env(safe-area-inset-bottom, 24px)',
+        paddingBottom: 'max(env(safe-area-inset-bottom, 24px), 24px)',
       }}
       onClick={(event) => event.stopPropagation()}
     >
@@ -123,22 +122,22 @@ function DrawerContent({ onClose }: { onClose: () => void }) {
           display: 'flex',
           flexDirection: 'column',
           gap: 1,
-          mt: { xs: 4, md: 5 },
+          mt: 'auto',
           pt: { xs: 2, md: 3 },
+          pb: { xs: 2, sm: 3 },
           borderTop: '1px solid rgba(114, 73, 176, 0.2)',
         }}
       >
         <Typography
-          variant="subtitle1"
-          sx={{
-            color: '#7249b0',
-            fontWeight: 'bold',
-            fontSize: { xs: '1rem', sm: '1.1rem' },
-            textTransform: 'uppercase',
-            letterSpacing: '0.15em',
-          }}
+          component="a"
+          href="https://eepurl.com/hndptv"
+          fontWeight="bold"
+          target="_blank"
+          rel="noopener noreferrer"
+          variant="body1"
+          sx={{ color: '#7249b0', fontSize: { xs: '1rem', sm: '1.1rem' }, textDecoration: 'underline' }}
         >
-          Contactos
+          SUBESCREVER NEWSLETTER
         </Typography>
         <Typography variant="body2" sx={{ color: '#7249b0', fontSize: { xs: '1rem', sm: '1.1rem' } }}>
           saliva.diva.label@gmail.com
@@ -325,7 +324,7 @@ export default function Navigation() {
           position: 'fixed',
           inset: 0,
           width: '100%',
-          minHeight: '100vh',
+          height: '100dvh',
           zIndex: 1200,
           transform: drawerOpen ? 'translateX(0)' : 'translateX(-100%)',
           opacity: drawerOpen ? 1 : 0,
@@ -334,6 +333,7 @@ export default function Navigation() {
           transition: 'transform 0.35s ease, opacity 0.35s ease',
           backgroundColor: '#7cfec3',
           overflowY: 'auto',
+          WebkitOverflowScrolling: 'touch',
           overscrollBehavior: 'contain',
         }}
       >

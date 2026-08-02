@@ -211,9 +211,10 @@ export default function RecentReleasesSlideshow() {
             textDecoration: 'underline',
             fontSize: { xs: '2rem', sm: '2.6rem', md: '3.6rem' },
             lineHeight: 1,
+            textAlign: 'center',
           }}
         >
-          VER TODOS
+          VER TODOS OS LANÇAMENTOS
         </Typography>
       </Box>
     );

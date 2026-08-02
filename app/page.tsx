@@ -2,13 +2,17 @@
 
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { Container, Box } from '@mui/material';
+import Link from 'next/link';
+import { Container, Box, Typography } from '@mui/material';
 import homepageLogo from '@/public/assets/homepage_logo.png';
 import RecentReleasesSlideshow from './components/RecentReleasesSlideshow';
 import HomeCalendarSection from './components/HomeCalendarSection';
+import ArtistCard from './components/ArtistCard';
+import artists from './data/artists';
 
 export default function Home() {
   const [hideScrollIndicator, setHideScrollIndicator] = useState(false);
+  const homeArtists = artists.slice(0, 8);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -152,6 +156,105 @@ export default function Home() {
 
         <RecentReleasesSlideshow />
         <HomeCalendarSection />
+
+        <Box
+          component="section"
+          aria-label="Artistas"
+          sx={{
+            width: '100%',
+            maxWidth: { xs: '340px', sm: '584px', md: '768px', lg: '1032px' },
+            mx: 'auto',
+            pb: { xs: 8, md: 12 },
+          }}
+        >
+          <Typography
+            variant="h2"
+            component="h2"
+            sx={{
+              fontSize: { xs: '2rem', sm: '3.5rem', md: '4.5rem' },
+              fontWeight: 'bold',
+              lineHeight: 1,
+              textAlign: 'left',
+              mb: 4,
+            }}
+          >
+            ARTISTAS
+          </Typography>
+
+          <Box
+            sx={{
+              width: '100%',
+              display: 'grid',
+              gridTemplateColumns: {
+                xs: '1fr',
+                sm: 'repeat(2, 280px)',
+                md: 'repeat(3, 240px)',
+                lg: 'repeat(4, 240px)',
+              },
+              gap: 3,
+              margin: '0 auto',
+              padding: { xs: '0', md: '32px 0' },
+              boxSizing: 'border-box',
+              justifyItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            {homeArtists.map((artist, index) => (
+              <ArtistCard key={`${artist.name}-${index}`} artist={artist} />
+            ))}
+          </Box>
+
+          <Box sx={{ mt: { xs: 3, md: 4 }, textAlign: 'left' }}>
+            <Typography
+              component={Link}
+              href="/artists"
+              sx={{
+                display: 'inline-flex',
+                color: '#7cfec3',
+                textDecoration: 'underline',
+                textTransform: 'uppercase',
+                fontSize: { xs: '1.4rem', sm: '1.8rem', md: '2.1rem' },
+                fontWeight: 800,
+                letterSpacing: '0.03em',
+                '&:hover': {
+                  opacity: 0.86,
+                },
+              }}
+            >
+              VER TODOS OS ARTISTAS
+            </Typography>
+          </Box>
+          <Box
+            sx={{
+              width: '100%',
+              maxWidth: { xs: '340px', sm: '584px', md: '768px', lg: '1032px' },
+              mx: 'auto',
+              pb: { xs: 8, md: 12 },
+              textAlign: 'left',
+            }}
+          >
+            <Typography
+              component="a"
+              href="https://eepurl.com/hndptv"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                display: 'inline-flex',
+                color: '#7cfec3',
+                textDecoration: 'underline',
+                textTransform: 'uppercase',
+                fontSize: { xs: '1.6em', sm: '2.2rem', md: '3rem' },
+                fontWeight: 800,
+                letterSpacing: '0.03em',
+                '&:hover': {
+                  opacity: 0.86,
+                },
+              }}
+            >
+              SUBESCREVER NEWSLETTER
+            </Typography>
+          </Box>
+        </Box>
       </Box>
     </Container>
   );
