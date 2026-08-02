@@ -64,8 +64,10 @@ export default function ReleaseCard({ release }: ReleaseCardProps) {
   }, []);
 
   const {
+    diva,
     name,
     artist,
+    year,
     cover,
     banner,
     instagram,
@@ -81,85 +83,115 @@ export default function ReleaseCard({ release }: ReleaseCardProps) {
     <Box
       sx={{
         width: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        flexDirection: 'column',
-        marginTop: 8,
-        '& > *': {
-          padding: 0,
-        },
+        display: 'block',
+        marginTop: 0,
       }}
     >
-      {/* Banner Image */}
       <Box
-        component="img"
-        src={banner}
-        alt={`${artist} - ${name}`}
         sx={{
+          position: 'relative',
           width: '100vw',
-          padding: 0,
-          objectFit: 'contain',
-          '@media (max-width: 1200px)': {
-            width: '100vw',
-          },
-        }}
-        onError={(e) => {
-          // Hide banner if image fails to load
-          e.currentTarget.style.display = 'none';
-        }}
-      />
-
-      {/* Title Section */}
-      <Box
-        sx={{
-          width: '100%',
-           display: 'flex',
-           flexDirection: 'column',
-           textTransform: 'uppercase',
-           padding: 0,
-           marginTop: 2,
-           marginBottom: 2,
-           '@media (max-width: 900px)': {
-             marginTop: 1,
-             marginBottom: 1,
-           },
+          left: '50%',
+          right: '50%',
+          marginLeft: '-50vw',
+          marginRight: '-50vw',
+          overflow: 'hidden',
+          display: 'block',
         }}
       >
-         <Typography
-           variant="h1"
-           sx={{
-             color: '#7cfec2',
-             margin: 0,
-             fontSize: { xs: '1.25rem', sm: '1.6rem', md: '4.2rem' },
-           }}
-         >
-          {artist}
-        </Typography>
-         <Typography
-           variant="h3"
-           sx={{
-             color: '#7cfec2',
-             margin: 0,
-             fontSize: { xs: '0.85rem', sm: '1rem', md: '1.8rem' },
-           }}
-         >
-          {name}
-        </Typography>
+        <Box
+          component="img"
+          src={banner}
+          alt={`${artist} - ${name}`}
+          sx={{
+            width: '100%',
+            height: { xs: '320px', sm: '440px', md: '620px' },
+            objectFit: 'cover',
+            display: 'block',
+          }}
+          onError={(e) => {
+            e.currentTarget.style.display = 'none';
+          }}
+        />
+
+        <Box
+          sx={{
+            position: 'absolute',
+            inset: 0,
+            background:
+              'linear-gradient(180deg, rgba(0, 0, 0, 0.05) 8%, rgba(0, 0, 0, 0.75) 100%)',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-end',
+            padding: 0,
+          }}
+        >
+          <Box
+            sx={{
+              width: '100%',
+              maxWidth: { xs: '340px', sm: '584px', md: '768px', lg: '1032px' },
+              mx: 'auto',
+              px: { xs: 2, sm: 3, md: 0 },
+              pb: { xs: 2, sm: 3, md: 4 },
+              textAlign: { xs: 'left', md: 'left' },
+            }}
+          >
+            <Typography
+              variant="h6"
+              sx={{
+                color: '#7cfec3',
+                margin: 0,
+                fontWeight: 700,
+                fontSize: { xs: '1.2rem', sm: '1.6rem', md: '2.4rem' },
+                letterSpacing: '0.04em',
+                textTransform: 'uppercase',
+              }}
+            >
+              {artist}
+            </Typography>
+            <Typography
+              variant="h3"
+              sx={{
+                color: '#ffffff',
+                margin: 0,
+                fontWeight: 700,
+                fontSize: { xs: '1.3rem', sm: '1.7rem', md: '3.2rem' },
+                lineHeight: 1.15,
+                textTransform: 'uppercase',
+              }}
+            >
+              {name}
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{
+                color: '#ffffff',
+                mt: 0.75,
+                opacity: 0.92,
+                fontSize: { xs: '0.75rem', sm: '0.85rem', md: '0.95rem' },
+              }}
+            >
+              {`${year} • DIVA ${diva}`}
+            </Typography>
+          </Box>
+        </Box>
       </Box>
 
       {/* Content Section */}
       <Box
         sx={{
           width: '100%',
+          maxWidth: { xs: 'none', md: '768px', lg: '1032px' },
+          mx: { xs: 0, md: 'auto' },
           display: 'flex',
           flexDirection: 'row',
-          margin: { xs: 1, md: 2 },
+          marginTop: { xs: 2, md: 4 },
+          px: { xs: 2, sm: 3, md: 0 },
           '@media (max-width: 900px)': {
             flexDirection: 'column',
           },
           '@media (max-width: 350px)': {
-            maxWidth: '280px',
+            maxWidth: 'none',
           },
           padding: 0,
         }}
@@ -236,7 +268,7 @@ export default function ReleaseCard({ release }: ReleaseCardProps) {
             variant="body1"
             sx={{
               marginBottom: 2,
-              fontSize: { xs: '0.8rem', sm: '0.9rem', md: '1.2rem' },
+              fontSize: { xs: '1rem', sm: '1.1rem', md: '1.2rem' },
             }}
           >
             {review}

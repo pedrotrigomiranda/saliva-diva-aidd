@@ -27,8 +27,8 @@ export default function ReleasesPage() {
           minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
+          justifyContent: 'flex-start',
+          alignItems: 'stretch',
           gap: 3,
           py: 8,
           pt: 12,
@@ -56,7 +56,6 @@ export default function ReleasesPage() {
             width: '100%',
             display: 'flex',
             flexDirection: 'column',
-            marginTop: 9,
             maxWidth: { xs: '340px', sm: '584px', md: '768px', lg: '1032px' },
             mx: 'auto',
           }}
@@ -69,7 +68,8 @@ export default function ReleasesPage() {
                 sx={{
                   fontSize: { xs: '1.8rem', sm: '2.2rem', md: '5rem' },
                   fontWeight: 'bold',
-                  textAlign: { xs: 'center', md: 'left' },
+                  textAlign: 'left',
+                  px: { xs: 2, sm: 3, md: 0 },
                   marginBottom: 1,
                 }}
               >
