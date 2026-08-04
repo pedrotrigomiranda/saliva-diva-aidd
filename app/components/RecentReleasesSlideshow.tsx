@@ -209,7 +209,7 @@ export default function RecentReleasesSlideshow() {
             letterSpacing: '0.04em',
             textTransform: 'uppercase',
             textDecoration: 'underline',
-            fontSize: { xs: '2rem', sm: '2.6rem', md: '3.6rem' },
+            fontSize: { xs: '1.6rem', sm: '2.2rem', md: '3.2rem' },
             lineHeight: 1,
             textAlign: 'center',
           }}
@@ -241,7 +241,7 @@ export default function RecentReleasesSlideshow() {
           variant="h2"
           component="h2"
           sx={{
-            fontSize: { xs: '2rem', sm: '3.5rem', md: '4.5rem' },
+            fontSize: { xs: '1.4rem', sm: '3rem', md: '4.5rem' },
             fontWeight: 'bold',
             lineHeight: 1,
             textAlign: 'left',

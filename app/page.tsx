@@ -7,6 +7,7 @@ import { Container, Box, Typography } from '@mui/material';
 import homepageLogo from '@/public/assets/homepage_logo.png';
 import RecentReleasesSlideshow from './components/RecentReleasesSlideshow';
 import HomeCalendarSection from './components/HomeCalendarSection';
+import HomeRecordsPlayerSection from './components/HomeRecordsPlayerSection';
 import ArtistCard from './components/ArtistCard';
 import artists from './data/artists';
 
@@ -156,6 +157,7 @@ export default function Home() {
 
         <RecentReleasesSlideshow />
         <HomeCalendarSection />
+        <HomeRecordsPlayerSection />
 
         <Box
           component="section"
@@ -204,7 +206,7 @@ export default function Home() {
             ))}
           </Box>
 
-          <Box sx={{ mt: { xs: 3, md: 4 }, textAlign: 'left' }}>
+          <Box sx={{ mt: { xs: 1.5, md: 2.5 }, textAlign: 'left' }}>
             <Typography
               component={Link}
               href="/artists"
@@ -213,7 +215,7 @@ export default function Home() {
                 color: '#7cfec3',
                 textDecoration: 'underline',
                 textTransform: 'uppercase',
-                fontSize: { xs: '1.4rem', sm: '1.8rem', md: '2.1rem' },
+                fontSize: { xs: '1.2rem', sm: '1.8rem', md: '2.1rem' },
                 fontWeight: 800,
                 letterSpacing: '0.03em',
                 '&:hover': {
@@ -229,6 +231,7 @@ export default function Home() {
               width: '100%',
               maxWidth: { xs: '340px', sm: '584px', md: '768px', lg: '1032px' },
               mx: 'auto',
+              mt: { xs: 5, md: 7 },
               pb: { xs: 8, md: 12 },
               textAlign: 'left',
             }}
@@ -243,7 +246,7 @@ export default function Home() {
                 color: '#7cfec3',
                 textDecoration: 'underline',
                 textTransform: 'uppercase',
-                fontSize: { xs: '1.6em', sm: '2.2rem', md: '3rem' },
+                fontSize: { xs: '1rem', sm: '2.2rem', md: '3rem' },
                 fontWeight: 800,
                 letterSpacing: '0.03em',
                 '&:hover': {

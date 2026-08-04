@@ -131,7 +131,7 @@ export default function HomeCalendarSection() {
         variant="h2"
         component="h2"
         sx={{
-          fontSize: { xs: '2rem', sm: '3.5rem', md: '4.5rem' },
+          fontSize: { xs: '1.4rem', sm: '3.2rem', md: '4.5rem' },
           fontWeight: 'bold',
           lineHeight: 1,
           textAlign: 'left',
@@ -243,7 +243,7 @@ export default function HomeCalendarSection() {
             color: '#7cfec3',
             textDecoration: 'underline',
             textTransform: 'uppercase',
-            fontSize: { xs: '1.4rem', sm: '1.8rem', md: '2.1rem' },
+            fontSize: { xs: '1.2rem', sm: '1.8rem', md: '2.1rem' },
             fontWeight: 800,
             letterSpacing: '0.03em',
             '&:hover': {
