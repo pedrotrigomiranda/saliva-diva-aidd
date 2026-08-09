@@ -12,15 +12,12 @@ const TRANSITION_MS = 520;
 const SLIDE_HEIGHT = { xs: '320px', sm: '440px', md: '620px' } as const;
 
 type Release = (typeof releases)[number];
-type Slide =
-  | { type: 'release'; release: Release }
-  | { type: 'all-releases' };
+type Slide = { type: 'release'; release: Release };
 
 export default function RecentReleasesSlideshow() {
   const slides = useMemo<Slide[]>(
     () => [
-      ...releases.slice(0, 3).map((release) => ({ type: 'release' as const, release })),
-      { type: 'all-releases' as const },
+      ...releases.slice(0, 4).map((release) => ({ type: 'release' as const, release })),
     ],
     []
   );
@@ -91,131 +88,90 @@ export default function RecentReleasesSlideshow() {
   };
 
   const renderSlide = (slide: Slide) => {
-    if (slide.type === 'release') {
-      return (
-        <Box
-          component={Link}
-          href={`/releases#release-${slide.release.diva}`}
-          aria-label={`Abrir lançamento ${slide.release.artist} - ${slide.release.name}`}
-          sx={{
-            display: 'block',
-            position: 'relative',
-            color: 'inherit',
-            textDecoration: 'none',
-            width: '100%',
-            height: '100%',
-          }}
-        >
-          <Box
-            component="img"
-            src={slide.release.banner || slide.release.cover}
-            alt={`${slide.release.artist} - ${slide.release.name}`}
-            sx={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              display: 'block',
-            }}
-          />
-
-          <Box
-            sx={{
-              position: 'absolute',
-              inset: 0,
-              background:
-                'linear-gradient(180deg, rgba(0, 0, 0, 0.05) 8%, rgba(0, 0, 0, 0.75) 100%)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'flex-end',
-              padding: 0,
-            }}
-          >
-            <Box
-              sx={{
-                width: '100%',
-                maxWidth: { xs: '340px', sm: '584px', md: '768px', lg: '1032px' },
-                mx: 'auto',
-                px: { xs: 2, sm: 3, md: 0 },
-                pb: { xs: 2, sm: 3, md: 4 },
-              }}
-            >
-              <Typography
-                variant="h6"
-                sx={{
-                  color: '#7cfec3',
-                  fontWeight: 700,
-                  fontSize: { xs: '1.2rem', sm: '1.6rem', md: '2.4rem' },
-                  letterSpacing: '0.04em',
-                  textTransform: 'uppercase',
-                }}
-              >
-                {slide.release.artist}
-              </Typography>
-              <Typography
-                variant="h3"
-                sx={{
-                  color: '#ffffff',
-                  fontWeight: 700,
-                  fontSize: { xs: '1.3rem', sm: '1.7rem', md: '3.2rem' },
-                  lineHeight: 1.15,
-                  textTransform: 'uppercase',
-                }}
-              >
-                {slide.release.name}
-              </Typography>
-              <Typography
-                variant="body2"
-                sx={{
-                  color: '#ffffff',
-                  mt: 0.75,
-                  opacity: 0.92,
-                  fontSize: { xs: '0.75rem', sm: '0.85rem', md: '0.95rem' },
-                }}
-              >
-                {`${slide.release.year} • DIVA ${slide.release.diva}`}
-              </Typography>
-            </Box>
-          </Box>
-        </Box>
-      );
-    }
-
     return (
       <Box
         component={Link}
-        href="/releases"
-        aria-label="Ver todos os lançamentos"
+        href={`/releases#release-${slide.release.diva}`}
+        aria-label={`Abrir lançamento ${slide.release.artist} - ${slide.release.name}`}
         sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
+          display: 'block',
+          position: 'relative',
+          color: 'inherit',
+          textDecoration: 'none',
           width: '100%',
           height: '100%',
-          textDecoration: 'none',
-          color: '#ffffff',
-          background: 'transparent',
-          transition: 'filter 200ms ease',
-          '&:hover': {
-            filter: 'brightness(1.08)',
-          },
         }}
       >
-        <Typography
-          variant="h3"
+        <Box
+          component="img"
+          src={slide.release.banner || slide.release.cover}
+          alt={`${slide.release.artist} - ${slide.release.name}`}
           sx={{
-            color: '#7cfec3',
-            fontWeight: 800,
-            letterSpacing: '0.04em',
-            textTransform: 'uppercase',
-            textDecoration: 'underline',
-            fontSize: { xs: '1.6rem', sm: '2.2rem', md: '3.2rem' },
-            lineHeight: 1,
-            textAlign: 'center',
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            display: 'block',
+          }}
+        />
+
+        <Box
+          sx={{
+            position: 'absolute',
+            inset: 0,
+            background:
+              'linear-gradient(180deg, rgba(0, 0, 0, 0.05) 8%, rgba(0, 0, 0, 0.75) 100%)',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'flex-end',
+            padding: 0,
           }}
         >
-          VER TODOS OS LANÇAMENTOS
-        </Typography>
+          <Box
+            sx={{
+              width: '100%',
+              maxWidth: { xs: '340px', sm: '584px', md: '768px', lg: '1032px' },
+              mx: 'auto',
+              px: { xs: 2, sm: 3, md: 0 },
+              pb: { xs: 2, sm: 3, md: 4 },
+            }}
+          >
+            <Typography
+              variant="h6"
+              sx={{
+                color: '#7cfec3',
+                fontWeight: 700,
+                fontSize: { xs: '1.2rem', sm: '1.6rem', md: '2.4rem' },
+                letterSpacing: '0.04em',
+                textTransform: 'uppercase',
+              }}
+            >
+              {slide.release.artist}
+            </Typography>
+            <Typography
+              variant="h3"
+              sx={{
+                color: '#ffffff',
+                fontWeight: 700,
+                fontSize: { xs: '1.3rem', sm: '1.7rem', md: '3.2rem' },
+                lineHeight: 1.15,
+                textTransform: 'uppercase',
+              }}
+            >
+              {slide.release.name}
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{
+                color: '#ffffff',
+                mt: 0.75,
+                opacity: 0.92,
+                fontSize: { xs: '0.75rem', sm: '0.85rem', md: '0.95rem' },
+              }}
+            >
+              {`${slide.release.year} • DIVA ${slide.release.diva}`}
+            </Typography>
+          </Box>
+        </Box>
       </Box>
     );
   };
@@ -261,9 +217,9 @@ export default function RecentReleasesSlideshow() {
           marginLeft: '-50vw',
           marginRight: '-50vw',
           height: SLIDE_HEIGHT,
-          borderRadius: currentSlide.type === 'release' ? '20px' : 0,
+          borderRadius: 0,
           overflow: 'hidden',
-          boxShadow: currentSlide.type === 'release' ? '0 18px 50px rgba(0, 0, 0, 0.35)' : 'none',
+          boxShadow: 'none',
           '@keyframes slideFadeIn': {
             from: { opacity: 0, transform: 'scale(1.02)' },
             to: { opacity: 1, transform: 'scale(1)' },
@@ -341,22 +297,33 @@ export default function RecentReleasesSlideshow() {
           <KeyboardArrowRightRoundedIcon />
         </IconButton>
 
-        <Box
+      </Box>
+
+      <Box
+        sx={{
+          width: '100%',
+          maxWidth: { xs: '340px', sm: '584px', md: '768px', lg: '1032px' },
+          mx: 'auto',
+          mt: { xs: 2, md: 3 },
+        }}
+      >
+        <Typography
+          variant="h3"
+          component={Link}
+          href="/releases"
           sx={{
-            position: 'absolute',
-            right: { xs: 12, md: 16 },
-            bottom: { xs: 12, md: 16 },
-            zIndex: 6,
-            px: 1.2,
-            py: 0.45,
-            borderRadius: '999px',
-            bgcolor: 'rgba(0, 0, 0, 0.55)',
+            color: '#7cfec3',
+            fontWeight: 800,
+            letterSpacing: '0.04em',
+            textTransform: 'uppercase',
+            textDecoration: 'underline',
+            fontSize: { xs: '1rem', sm: '1.8rem', md: '2.4rem' },
+            lineHeight: 1,
+            display: 'inline-block',
           }}
         >
-          <Typography sx={{ color: '#ffffff', fontSize: { xs: '0.75rem', md: '0.8rem' } }}>
-            {`${currentIndex + 1}/${slides.length}`}
-          </Typography>
-        </Box>
+          VER TODOS OS LANÇAMENTOS
+        </Typography>
       </Box>
     </Box>
   );

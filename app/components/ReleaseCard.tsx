@@ -279,7 +279,7 @@ export default function ReleaseCard({ release }: ReleaseCardProps) {
             sx={{
               color: '#7cfec2',
               marginBottom: 1,
-              fontSize: { xs: '0.7rem', sm: '0.75rem', md: '0.8rem' },
+              fontSize: { xs: '0.8rem', sm: '0.9rem', md: '1.2rem' },
             }}
           >
             <MuiLink
@@ -294,31 +294,7 @@ export default function ReleaseCard({ release }: ReleaseCardProps) {
                 },
               }}
             >
-              BUY DIGITAL ALBUM
-            </MuiLink>
-          </Typography>
-
-          <Typography
-            variant="h6"
-            sx={{
-              color: '#7cfec2',
-              marginBottom: 2,
-              fontSize: { xs: '0.65rem', md: '0.8rem' },
-            }}
-          >
-            <MuiLink
-              href={bandcampLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{
-                color: 'inherit',
-                textDecoration: 'none',
-                '&:hover': {
-                  textDecoration: 'underline',
-                },
-              }}
-            >
-              BUY COMPACT DISC
+              COMPRAR DISCO
             </MuiLink>
           </Typography>
 

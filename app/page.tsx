@@ -157,7 +157,7 @@ export default function Home() {
 
         <RecentReleasesSlideshow />
         <HomeCalendarSection />
-        <HomeRecordsPlayerSection />
+        {/* <HomeRecordsPlayerSection /> */}
 
         <Box
           component="section"

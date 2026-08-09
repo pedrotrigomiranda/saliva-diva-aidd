@@ -216,7 +216,7 @@ const artists = [
   {
     name: "Baleia Baleia Baleia",
     image: "/assets/artist_baleia.png",
-    bandcampUrl: "https://salivadiva.bandcamp.com/track/egossistema",
+    bandcampUrl: "https://salivadiva.bandcamp.com/album/outra-vez-arroz",
     instagram: "https://www.instagram.com/baleia_baleia_baleia/",
     facebook: "https://www.facebook.com/Baleiax3/",
     email: "",
