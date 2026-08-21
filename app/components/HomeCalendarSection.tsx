@@ -82,12 +82,7 @@ function getNextEvents(limit: number): HomeEvent[] {
 
   const allEvents: HomeEvent[] = calendar.flatMap((section, sectionIndex) =>
     section.events.map((event, eventIndex) => {
-      let timestamp = getEventTimestamp(event.date, now.getFullYear());
-
-      // Events are yearly and stored without a year, so shift past dates to next year.
-      if (timestamp < today && Number.isFinite(timestamp)) {
-        timestamp = getEventTimestamp(event.date, now.getFullYear() + 1);
-      }
+      const timestamp = getEventTimestamp(event.date, now.getFullYear());
 
       return {
         ...event,
@@ -99,6 +94,7 @@ function getNextEvents(limit: number): HomeEvent[] {
   );
 
   return allEvents
+    .filter((event) => Number.isFinite(event.timestamp) && event.timestamp >= today)
     .sort((a, b) => {
       if (a.timestamp !== b.timestamp) {
         return a.timestamp - b.timestamp;
