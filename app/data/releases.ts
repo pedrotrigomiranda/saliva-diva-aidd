@@ -1,5 +1,26 @@
 const releases = [
     {
+    diva: 33,
+    type: "album",
+    name: "Gentrified Flat Music",
+    artist: "Tren Go! Sound System",
+    year: 2026,
+    cover: "/assets/cover_gentrified_flat_music.jpg",
+    banner: "/assets/banner_gentrified_flat_music.jpeg",
+    instagram: "https://www.instagram.com/delaymodular/",
+    facebook: "https://www.facebook.com/trengosoundsystem/",
+    email: "trengosoundsystem@gmail.com",
+    youtube: "https://www.youtube.com/channel/UCUupoUX1xNbvuyLgo6JWCyA",
+    spotify:
+      "",
+    bandcampLink:
+      "https://salivadiva.bandcamp.com/album/gentrified-flat-music",
+    bandcampSrc:
+      "https://bandcamp.com/EmbeddedPlayer/album=3521150542/size=small/bgcol=ffffff/linkcol=7249b1/artwork=none/transparent=true/",
+    review:
+      'Quando a especulação imobiliária esfrega as suas patas sujas nos amplificadores, lançando estuque rectilíneo sobre guitarras e pedais, achatando a vida cultural das cidades para lá fazer brotar sushiarias, croissanterias e mercearias com batatas ao preço de ostras, quem faz música vê-se numa encruzilhada entre desistência e reinvenção. Felizmente, Tren Go! Sound System escolheu a segunda opção, e "Gentrified Flat Music" é o fruto dessa resiliência. Talvez não houvesse melhor forma de celebrar os 20 anos de existência do projecto, rasgando a guitarra para dentro de sampler, trocando as palhetas pelos botões, deturpando o silêncio com a urgência psicadélica e sónica de sempre.',
+  },
+    {
     diva: 32,
     type: "album",
     name: "Outra vez arroz",

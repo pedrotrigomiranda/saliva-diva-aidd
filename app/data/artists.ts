@@ -1,5 +1,17 @@
 const artists = [
     {
+    name: "Tren Go! Sound System",
+    image: "/assets/artist_tren_go_sound_system.jpeg",
+    bandcampUrl:
+      "https://salivadiva.bandcamp.com/album/gentrified-flat-music",
+    instagram: "https://www.instagram.com/delaymodular/",
+    facebook: "https://www.facebook.com/trengosoundsystem/",
+    email: "trengosoundsystem@gmail.com",
+    youtube: "https://www.youtube.com/channel/UCUupoUX1xNbvuyLgo6JWCyA",
+    spotify:
+      "https://open.spotify.com/artist/6X3H3J8I9uuhkFl9fJkbB2?si=Fer5WpmCRsS68uIp6Ndg0w",
+  },
+    {
     name: "Astra Vaga",
     image: "/assets/artist_astra_vaga.jpeg",
     bandcampUrl:
